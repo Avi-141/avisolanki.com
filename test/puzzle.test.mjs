@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import vm from 'node:vm';
+
+const elements = new Map();
+const element = (id) => ({ dataset: {}, style: { setProperty() {} }, setAttribute(k, v) { this[k] = v; }, addEventListener(k, fn) { this[k] = fn; }, textContent: '', hidden: false });
+const pieces = Array.from({ length: 3 }, (_, i) => element(i));
+for (const id of ['puzzle', 'puzzle-status', 'mix', 'progress']) elements.set(id, element(id));
+const document = { querySelectorAll: () => pieces, getElementById: id => elements.get(id) };
+vm.runInNewContext(readFileSync(new URL('../public/puzzle.js', import.meta.url), 'utf8'), { document });
+const status = elements.get('puzzle-status');
+elements.get('mix').click();
+assert.equal(elements.get('progress').textContent, '00 / 03');
+assert.notEqual(status.textContent, 'Things clicked.');
+for (const [i, clicks] of [3, 1, 2].entries()) for (let n = 0; n < clicks; n++) pieces[i].click();
+assert.equal(status.textContent, 'Things clicked.');
+assert.equal(elements.get('progress').textContent, '03 / 03');
+pieces[0].click();
+assert.equal(elements.get('progress').textContent, '02 / 03');
+assert.notEqual(status.textContent, 'Things clicked.');
+elements.get('mix').click();
+assert.equal(elements.get('progress').textContent, '00 / 03');
+console.log('Puzzle: mix, solve, disturb, and replay passed.');

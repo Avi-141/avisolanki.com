@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0e8">
+  <meta name="description" content="Avi Solanki. Engineer, problem solver, and jack of all trades. I like figuring things out.">
+  <meta property="og:title" content="Avi Solanki — A little curious.">
+  <meta property="og:description" content="Engineer. Problem solver. Jack of all trades. Come say hello, or put a few things together.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avisolanki.com/">
+  <link rel="canonical" href="https://avisolanki.com/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/puzzle.js" defer></script>
+  <title>Avi Solanki — A little curious.</title>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="signature" href="/" aria-label="Avi Solanki home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 27 13 5h6L9 27Zm16-22 10 22h-6L13 5ZM11 20h12v5H9Z" fill="currentColor"/></svg><span>AVISOLANKI.COM</span></a>
+      <span class="edition">A SMALL CORNER OF THE INTERNET</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="name">
+        <p class="eyebrow"><span class="spark" aria-hidden="true">✳</span> A LITTLE CURIOUS. ALWAYS.</p>
+        <h1 id="name"><span>Avi</span><em>Solanki<span class="period">.</span></em></h1>
+        <div class="bio">
+          <p class="roles">Engineer. Problem solver.<br>Brother, son, friend.</p>
+          <p class="thought">I like figuring things out.<br><span>Jack of all trades.</span></p>
+        </div>
+        <div class="contact">
+          <a class="linkedin" href="https://www.linkedin.com/in/avisolanki" target="_blank" rel="noopener noreferrer">Let’s connect <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg><span class="link-label">LINKEDIN</span></a>
+          <a class="email" href="mailto:avi27.999@gmail.com" aria-label="Email Avi at avi27.999@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg><span class="email-tip">avi27.999@gmail.com</span></a>
+        </div>
+      </section>
+
+      <section class="playground" aria-labelledby="play-title">
+        <div class="play-top"><h2 id="play-title">THE ASSEMBLY</h2><span class="index">FIG. 01</span></div>
+        <div class="puzzle" id="puzzle" data-solved="true">
+          <svg class="guide" viewBox="0 0 400 420" fill="none" aria-hidden="true"><circle cx="200" cy="208" r="177"/><path d="M200 15v386M13 208h374" stroke-dasharray="2 6"/><path class="outline" d="m75 350 100-280h50L125 350Zm150-280 100 280h-50L175 70ZM119 255h162l17 48H102Z"/></svg>
+          <div class="piece-holder left"><button class="piece" data-piece="0" aria-label="Rotate left piece clockwise" aria-describedby="instructions" disabled><svg viewBox="0 0 150 280" aria-hidden="true"><defs><linearGradient id="l" x2="1" y2="1"><stop stop-color="#c95b39"/><stop offset="1" stop-color="#a33821"/></linearGradient></defs><path d="M100 0h50L50 280H0Z" fill="url(#l)"/><path d="m100 1 49 0L49 279H1" fill="none" stroke="#e9986e" stroke-opacity=".5"/></svg></button></div>
+          <div class="piece-holder right"><button class="piece" data-piece="1" aria-label="Rotate right piece clockwise" aria-describedby="instructions" disabled><svg viewBox="0 0 150 280" aria-hidden="true"><defs><linearGradient id="r" x2="1" y2="1"><stop stop-color="#edac7f"/><stop offset="1" stop-color="#c97850"/></linearGradient></defs><path d="M0 0h50l100 280h-50Z" fill="url(#r)"/><path d="M1 1h48l100 278" fill="none" stroke="#ffdcc0" stroke-opacity=".7"/></svg></button></div>
+          <div class="piece-holder cross"><button class="piece" data-piece="2" aria-label="Rotate middle piece clockwise" aria-describedby="instructions" disabled><svg viewBox="0 0 196 48" aria-hidden="true"><defs><linearGradient id="c" x2="1" y2="1"><stop stop-color="#963c26"/><stop offset="1" stop-color="#6e281c"/></linearGradient></defs><path d="M17 0h162l17 48H0Z" fill="url(#c)"/><path d="M17 1h162" stroke="#f7b18a" stroke-opacity=".6"/></svg></button></div>
+        </div>
+        <div class="play-bottom">
+          <div><p class="puzzle-status" id="puzzle-status" aria-live="polite">A little problem for you.</p><p class="instructions" id="instructions">Mix it up. Tap the pieces. Find the A.</p></div>
+          <button class="mix" id="mix" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h3c4 0 6 10 10 10h4M17 13l4 4-4 4M4 17h3c1.5 0 2.7-1.4 3.9-3.2M13 10c1.3-1.8 2.5-3 4-3h4M17 3l4 4-4 4"/></svg><span>Mix things up</span></button>
+        </div>
+        <div class="play-meta"><span>THREE PIECES. ONE PERSPECTIVE.</span><span id="progress" aria-label="Pieces aligned">03 / 03</span></div>
+        <noscript><p class="no-js">Enable JavaScript to play with the pieces.</p></noscript>
+      </section>
+    </main>
+
+    <footer><span>Many interests. One Avi.</span><span class="footer-note">A WORK IN PROGRESS <span aria-hidden="true">↗</span></span></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "avisolanki-com",
+  "compatibility_date": "2026-09-05",
+  "assets": { "directory": "./public" },
+  "routes": [{ "pattern": "avisolanki.com", "custom_domain": true }]
+}
