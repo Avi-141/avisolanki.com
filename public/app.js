@@ -25,6 +25,13 @@ mixAssembly();
 let angle = -Math.PI / 2, target = 0, orbit = { hits: 0, misses: 0 };
 let flight = newFlight(), targetX = 160;
 const keys = new Set(), canvas = $('flight-canvas'), ctx = canvas.getContext('2d');
+let flightColors;
+function refreshFlightColors() {
+  const css = getComputedStyle(document.documentElement);
+  flightColors = { ink: css.getPropertyValue('--game-ink'), target: css.getPropertyValue('--game-target'), grid: css.getPropertyValue('--game-grid') };
+}
+refreshFlightColors();
+document.addEventListener('themechange', () => { refreshFlightColors(); if (game === 'flight') drawFlight(); });
 function stop() { playing = false; cancelAnimationFrame(frame); keys.clear(); }
 function selectGame(name) {
   stop(); game = name;
@@ -74,15 +81,15 @@ function updateFlight() {
 }
 function drawFlight() {
   ctx.clearRect(0, 0, 320, 270);
-  ctx.strokeStyle = '#d6b47712'; ctx.lineWidth = 1;
+  ctx.strokeStyle = flightColors.grid; ctx.lineWidth = 1;
   for (let x = 40; x < 320; x += 60) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 270); ctx.stroke(); }
-  ctx.fillStyle = '#eddbb9';
+  ctx.fillStyle = flightColors.ink;
   for (const b of flight.bullets) ctx.fillRect(b.x - 1, b.y - 5, 2, 9);
-  ctx.strokeStyle = '#b79a6e'; ctx.lineWidth = 1.5;
+  ctx.strokeStyle = flightColors.target; ctx.lineWidth = 1.5;
   for (const e of flight.enemies) {
     ctx.beginPath(); ctx.moveTo(e.x, e.y - 10); ctx.lineTo(e.x + 10, e.y); ctx.lineTo(e.x, e.y + 10); ctx.lineTo(e.x - 10, e.y); ctx.closePath(); ctx.stroke();
   }
-  ctx.fillStyle = '#eddbb9'; ctx.beginPath(); ctx.moveTo(flight.x, 230); ctx.lineTo(flight.x + 12, 253); ctx.lineTo(flight.x, 248); ctx.lineTo(flight.x - 12, 253); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = flightColors.ink; ctx.beginPath(); ctx.moveTo(flight.x, 230); ctx.lineTo(flight.x + 12, 253); ctx.lineTo(flight.x, 248); ctx.lineTo(flight.x - 12, 253); ctx.closePath(); ctx.fill();
   if (playing) { ctx.fillStyle = '#b88650'; ctx.fillRect(flight.x - 2, 255, 4, 4 + Math.random() * 4); }
 }
 flightButton.addEventListener('click', () => {

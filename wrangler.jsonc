@@ -9,6 +9,10 @@
     {
       "pattern": "avisolanki.com",
       "custom_domain": true
+    },
+    {
+      "pattern": "www.avisolanki.com",
+      "custom_domain": true
     }
   ],
   "build": {

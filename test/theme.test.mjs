@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const source = fs.readFileSync(new URL('../public/theme.js', import.meta.url), 'utf8');
+function boot(saved, dark = false, blocked = false) {
+  const handlers = {}, root = { dataset: {} }, meta = {}, button = { setAttribute(k,v) { this[k] = v; }, addEventListener(k,fn) { handlers[k] = fn; } };
+  const system = { matches: dark, addEventListener(k,fn) { handlers.system = fn; } };
+  const storage = { getItem() { if (blocked) throw Error('Unavailable'); return saved; }, setItem(k,v) { if (blocked) throw Error('Unavailable'); saved=v; } };
+  vm.runInNewContext(source, { document: { documentElement: root, getElementById: () => button, querySelector: () => meta, addEventListener(k,fn) { handlers[k]=fn; }, dispatchEvent() {} }, matchMedia: () => system, localStorage: storage, Event: class {} });
+  handlers.DOMContentLoaded();
+  return { root, meta, button, handlers, system, saved: () => saved };
+}
+const first = boot(null);
+assert.equal(first.root.dataset.theme, 'light');
+first.handlers.click();
+assert.equal(first.root.dataset.theme, 'dark');
+assert.equal(first.saved(), 'dark');
+assert.equal(first.button['aria-label'], 'Switch to light mode');
+assert.equal(first.meta.content, '#1b1b1e');
+assert.equal(boot(first.saved()).root.dataset.theme, 'dark');
+first.system.matches=false; first.handlers.system();
+assert.equal(first.root.dataset.theme, 'dark');
+const follows = boot('invalid', true);
+assert.equal(follows.root.dataset.theme, 'dark');
+follows.system.matches=false; follows.handlers.system();
+assert.equal(follows.root.dataset.theme, 'light');
+const privateMode = boot(null, true, true);
+privateMode.handlers.click();
+assert.equal(privateMode.root.dataset.theme, 'light');
+console.log('Theme system preference, toggle, persistence, invalid preference, and blocked storage passed.');
