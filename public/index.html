@@ -3,57 +3,63 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f3f0e8">
-  <meta name="description" content="Avi Solanki. Engineer, problem solver, and jack of all trades. I like figuring things out.">
-  <meta property="og:title" content="Avi Solanki — A little curious.">
-  <meta property="og:description" content="Engineer. Problem solver. Jack of all trades. Come say hello, or put a few things together.">
+  <meta name="theme-color" content="#1b1b1e">
+  <meta name="description" content="Avi Solanki. Engineer, problem solver, and jack of all trades.">
+  <meta property="og:title" content="Avi Solanki">
+  <meta property="og:description" content="Engineer. Problem solver. I like figuring things out.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://avisolanki.com/">
   <link rel="canonical" href="https://avisolanki.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
-  <script src="/puzzle.js" defer></script>
-  <title>Avi Solanki — A little curious.</title>
+  <script type="module" src="/app.js"></script>
+  <title>Avi Solanki</title>
 </head>
 <body>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <div class="scene" id="scene" aria-hidden="true"><div class="sun-fallback"></div></div>
   <div class="page">
-    <header class="masthead">
-      <a class="signature" href="/" aria-label="Avi Solanki home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 27 13 5h6L9 27Zm16-22 10 22h-6L13 5ZM11 20h12v5H9Z" fill="currentColor"/></svg><span>AVISOLANKI.COM</span></a>
-      <span class="edition">A SMALL CORNER OF THE INTERNET</span>
+    <header>
+      <a class="seal" href="/" aria-label="Avi home"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="10"/><path d="M24 2v6m0 32v6M2 24h6m32 0h6M8.5 8.5l4.2 4.2m22.6 22.6 4.2 4.2M8.5 39.5l4.2-4.2m22.6-22.6 4.2-4.2"/><circle cx="24" cy="24" r="19" stroke-dasharray="1 5"/></svg></a>
+      <nav aria-label="Contact"><a class="linkedin" href="https://www.linkedin.com/in/avisolanki" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a class="email" href="mailto:avi27.999@gmail.com" aria-label="Email Avi at avi27.999@gmail.com"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></a></nav>
     </header>
-
     <main>
       <section class="intro" aria-labelledby="name">
-        <p class="eyebrow"><span class="spark" aria-hidden="true">✳</span> A LITTLE CURIOUS. ALWAYS.</p>
-        <h1 id="name"><span>Avi</span><em>Solanki<span class="period">.</span></em></h1>
-        <div class="bio">
-          <p class="roles">Engineer. Problem solver.<br>Brother, son, friend.</p>
-          <p class="thought">I like figuring things out.<br><span>Jack of all trades.</span></p>
-        </div>
-        <div class="contact">
-          <a class="linkedin" href="https://www.linkedin.com/in/avisolanki" target="_blank" rel="noopener noreferrer">Let’s connect <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg><span class="link-label">LINKEDIN</span></a>
-          <a class="email" href="mailto:avi27.999@gmail.com" aria-label="Email Avi at avi27.999@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg><span class="email-tip">avi27.999@gmail.com</span></a>
-        </div>
-      </section>
-
-      <section class="playground" aria-labelledby="play-title">
-        <div class="play-top"><h2 id="play-title">THE ASSEMBLY</h2><span class="index">FIG. 01</span></div>
-        <div class="puzzle" id="puzzle" data-solved="true">
-          <svg class="guide" viewBox="0 0 400 420" fill="none" aria-hidden="true"><circle cx="200" cy="208" r="177"/><path d="M200 15v386M13 208h374" stroke-dasharray="2 6"/><path class="outline" d="m75 350 100-280h50L139 350Zm150-280 100 280h-64L175 70ZM119 255h162l17 48H102Z"/></svg>
-          <div class="piece-holder left"><button class="piece" data-piece="0" aria-label="Rotate left piece clockwise" aria-describedby="instructions" disabled><svg viewBox="0 0 150 280" aria-hidden="true"><defs><linearGradient id="l" x2="1" y2="1"><stop stop-color="#c95b39"/><stop offset="1" stop-color="#a33821"/></linearGradient></defs><path d="M100 0h50L64 280H0Z" fill="url(#l)"/><path d="m100 1 49 0L63 279H1" fill="none" stroke="#e9986e" stroke-opacity=".5"/></svg></button></div>
-          <div class="piece-holder right"><button class="piece" data-piece="1" aria-label="Rotate right piece clockwise" aria-describedby="instructions" disabled><svg viewBox="0 0 150 280" aria-hidden="true"><defs><linearGradient id="r" x2="1" y2="1"><stop stop-color="#edac7f"/><stop offset="1" stop-color="#c97850"/></linearGradient></defs><path d="M0 0h50l100 280h-64Z" fill="url(#r)"/><path d="M1 1h48l100 278" fill="none" stroke="#ffdcc0" stroke-opacity=".7"/></svg></button></div>
-          <div class="piece-holder cross"><button class="piece" data-piece="2" aria-label="Rotate middle piece clockwise" aria-describedby="instructions" disabled><svg viewBox="0 0 196 48" aria-hidden="true"><defs><linearGradient id="c" x2="1" y2="1"><stop stop-color="#963c26"/><stop offset="1" stop-color="#6e281c"/></linearGradient></defs><path d="M17 0h162l17 48H0Z" fill="url(#c)"/><path d="M17 1h162" stroke="#f7b18a" stroke-opacity=".6"/></svg></button></div>
-        </div>
-        <div class="play-bottom">
-          <div><p class="puzzle-status" id="puzzle-status" aria-live="polite">A little problem for you.</p><p class="instructions" id="instructions">Mix it up. Tap the pieces. Find the A.</p></div>
-          <button class="mix" id="mix" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h3c4 0 6 10 10 10h4M17 13l4 4-4 4M4 17h3c1.5 0 2.7-1.4 3.9-3.2M13 10c1.3-1.8 2.5-3 4-3h4M17 3l4 4-4 4"/></svg><span>Mix things up</span></button>
-        </div>
-        <div class="play-meta"><span>THREE PIECES. ONE PERSPECTIVE.</span><span id="progress" aria-label="Pieces aligned">03 / 03</span></div>
-        <noscript><p class="no-js">Enable JavaScript to play with the pieces.</p></noscript>
+        <h1 id="name">Avi</h1>
+        <div class="bio"><p>Engineer. Problem solver.</p><p>I like figuring things out.</p><p>Jack of all trades. <span>Brother, son, friend.</span></p></div>
       </section>
     </main>
-
-    <footer><span>Many interests. One Avi.</span><span class="footer-note">A WORK IN PROGRESS <span aria-hidden="true">↗</span></span></footer>
+<footer><span class="full-name">Avi Solanki</span><button id="open-games" aria-haspopup="dialog">Play <span aria-hidden="true">↗</span></button></footer>
   </div>
+
+  <dialog id="arcade" aria-labelledby="arcade-title">
+    <div class="arcade-header"><span id="arcade-title">Pick a game</span><button id="close-games" class="close" aria-label="Close games">×</button></div>
+<div class="game-tabs" role="group" aria-label="Choose a game"><button data-game="assembly" aria-pressed="true">Assembly</button><button data-game="orbit" aria-pressed="false">Orbit</button><button data-game="flight" aria-pressed="false">Flight</button></div>
+    <section id="assembly-panel" aria-label="Assembly rotation puzzle">
+      <h2>Make it click.</h2><p class="game-description">Tap each piece to rotate it into an A.</p>
+      <div class="assembly-board">
+        <svg class="assembly-guide" viewBox="0 0 400 420" aria-hidden="true"><path d="m75 350 100-280h50L139 350Zm150-280 100 280h-64L175 70ZM119 255h162l17 48H102Z"/></svg>
+        <button data-piece="0" class="assembly-piece a-left" aria-label="Rotate left piece"><svg viewBox="0 0 150 280" aria-hidden="true"><path d="M100 0h50L64 280H0Z" fill="#b88650"/></svg></button>
+        <button data-piece="1" class="assembly-piece a-right" aria-label="Rotate right piece"><svg viewBox="0 0 150 280" aria-hidden="true"><path d="M0 0h50l100 280h-64Z" fill="#e0c699"/></svg></button>
+        <button data-piece="2" class="assembly-piece a-cross" aria-label="Rotate middle piece"><svg viewBox="0 0 196 48" aria-hidden="true"><path d="M17 0h162l17 48H0Z" fill="#936942"/></svg></button>
+      </div>
+      <div id="assembly-status" class="game-status" aria-live="polite">0 / 3 aligned</div>
+      <button id="assembly-mix" class="game-action">Mix again <span aria-hidden="true">↗</span></button>
+    </section>
+    <section hidden id="orbit-panel" aria-label="Orbit timing game">
+      <h2>Find your timing.</h2><p class="game-description">Stop the spark inside the golden arc.<br>Five catches. Three chances.</p>
+      <div class="orbit-board" aria-hidden="true"><svg viewBox="0 0 240 240"><circle class="orbit-track" cx="120" cy="120" r="88"/><path id="target-arc" class="target-arc" d="M 199.74 82.74 A 88 88 0 0 1 199.74 157.26"/><g id="orbit-hand"><circle class="orbital-spark" cx="208" cy="120" r="5"/><circle class="spark-halo" cx="208" cy="120" r="12"/></g><circle class="board-sun" cx="120" cy="120" r="29"/><circle class="board-halo" cx="120" cy="120" r="36"/></svg><span id="orbit-score">0 / 5</span></div>
+      <div class="game-status" id="orbit-status" aria-live="polite">Five catches to win.</div>
+      <button class="game-action" id="orbit-action">Start <span aria-hidden="true">↗</span></button>
+      <div class="game-foot"><span id="lives">3 chances left</span><span>CLICK OR SPACE</span></div>
+    </section>
+    <section id="flight-panel" aria-label="Flight arcade game" hidden>
+      <h2>Clear a path.</h2><p class="game-description">Move your ship. It fires automatically.<br>Hit 12 targets before 3 get through.</p>
+      <canvas id="flight-canvas" width="320" height="270" aria-label="Flight playfield. Use arrow keys or the controls below to steer."></canvas>
+      <div id="flight-status" class="game-status" aria-live="polite">Ready when you are.</div>
+      <div class="flight-controls"><button id="flight-left" aria-label="Steer left">←</button><button id="flight-action" class="game-action">Start <span aria-hidden="true">↗</span></button><button id="flight-right" aria-label="Steer right">→</button></div>
+      <div class="game-foot"><span id="flight-score">0 / 12</span><span>DRAG OR ARROW KEYS</span></div>
+    </section>
+  </dialog>
 </body>
 </html>
