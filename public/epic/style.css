@@ -6,6 +6,7 @@
 .epic h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(84px,9vw,155px);font-weight:400;letter-spacing:-.075em;line-height:.95;margin:0 0 0 -.045em;animation:none}
 .epic nav{gap:22px;padding-top:12px;align-items:center;pointer-events:auto}
 .epic nav a,.epic nav button{min-height:44px;background:none;border:0;font:17px Georgia,serif;letter-spacing:0;color:inherit}
+.epic nav a{display:inline-flex;align-items:center}
 .epic nav .email,.epic nav .theme-toggle{width:36px;min-height:44px}
 .epic .linkedin{display:inline-flex;align-items:center;gap:13px}
 .epic nav svg,.epic .arrow-icon{width:24px;height:24px;stroke:currentColor;stroke-width:1.25;fill:none}
@@ -30,8 +31,8 @@
 @media(max-width:760px){
  .epic .page{padding:0 6vw;min-height:520px}.epic .scene{bottom:132px;background-position:76% bottom}
  .epic header{padding-top:76px;display:block}.epic h1{font-size:108px}
- .epic nav{position:absolute;top:15px;right:5vw;gap:13px;padding:0}.epic nav a,.epic nav button{font-size:15px}
- .epic nav .email,.epic nav .theme-toggle{width:30px}.epic nav svg{width:21px;height:21px}
+ .epic nav{position:absolute;top:15px;right:5vw;gap:clamp(5px,1.8vw,13px);padding:0}.epic nav a,.epic nav button{font-size:14px}
+ .epic nav .email,.epic nav .theme-toggle{width:26px}.epic nav svg{width:19px;height:19px}.epic .linkedin{gap:5px}.epic .linkedin svg{width:16px;height:16px}
  .epic footer{min-height:132px;padding:15px 0 24px;font-size:15px;align-items:center;gap:10px}
  .epic .identity{background:none;padding:0}.epic .full-name{font-size:18px}
  .epic .reading-dialog{padding:30px 24px}
