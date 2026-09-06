@@ -13,26 +13,40 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <script src="/theme.js"></script>
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/courtyard.css">
+  <link rel="preload" as="image" href="/art/courtyard.webp" media="(min-width:761px)">
+  <link rel="preload" as="image" href="/art/courtyard-mobile.webp" media="(max-width:760px)">
   <script type="module" src="/app.js"></script>
   <title>Avi Solanki</title>
 </head>
-<body>
-  <div class="atmosphere" aria-hidden="true"></div>
-  <div class="scene" id="scene" aria-hidden="true"><div class="sun-fallback"></div></div>
+<body class="courtyard">
+  <div id="scene" class="scene" aria-hidden="true"></div>
   <div class="page">
-    <header>
-      <a class="seal" href="/" aria-label="Avi home"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="10"/><path d="M24 2v6m0 32v6M2 24h6m32 0h6M8.5 8.5l4.2 4.2m22.6 22.6 4.2 4.2M8.5 39.5l4.2-4.2m22.6-22.6 4.2-4.2"/><circle cx="24" cy="24" r="19" stroke-dasharray="1 5"/></svg></a>
-      <nav aria-label="Links and appearance"><a class="linkedin" href="https://www.linkedin.com/in/avisolanki" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></a><a class="email" href="mailto:avi27.999@gmail.com" aria-label="Email Avi at avi27.999@gmail.com"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></a><button id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><svg class="theme-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg></button></nav>
-    </header>
-    <main>
-      <section class="intro" aria-labelledby="name">
-        <h1 id="name">Avi</h1>
-        <div class="bio"><p class="personal">Brother, son, friend.</p><p class="profession">Engineer. Problem solver.</p><p>I like figuring things out.</p><p>Jack of all trades.</p></div>
-      </section>
+    <header><h1 id="name">Avi</h1><nav aria-label="Links and appearance"><button class="about-link" id="open-about">About</button><a class="linkedin" href="https://www.linkedin.com/in/avisolanki" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></a><a class="email" href="mailto:avi27.999@gmail.com" aria-label="Email Avi at avi27.999@gmail.com"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></a><button id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><svg class="theme-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg></button></nav></header>
+    <main aria-label="An Indian observatory courtyard">
+      <div class="dial-anchor" id="dial-anchor">
+        <div class="dial-fallback" aria-hidden="true"><span></span></div>
+        <input id="light-dial" type="range" min="-60" max="60" value="0" step="1" aria-label="Turn the light" aria-valuetext="Morning light">
+        <label class="dial-hint" for="light-dial">Turn the light</label>
+      </div>
+      <button id="water-touch" class="world-hotspot water-hotspot" aria-label="Make a ripple in the water"><span>Touch the water</span></button>
+      <button id="open-notebook" class="world-hotspot notebook-hotspot" aria-haspopup="dialog" aria-label="Open the notebook: light and life studies"><span>Look closer <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button>
     </main>
-<footer><span class="full-name">Avi Solanki</span><button id="open-games" aria-haspopup="dialog">Play <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></button></footer>
+    <footer><div class="identity"><span class="full-name">Avi Solanki</span><p>Brother. Son. Friend.</p><p>Engineer. Problem solver.</p></div><button id="open-games" aria-haspopup="dialog">Play <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></button></footer>
   </div>
-
+  <dialog id="about" class="reading-dialog" aria-labelledby="about-title">
+    <button class="close reading-close" data-close="about" aria-label="Close about">×</button>
+    <p class="eyebrow">A little about me</p><h2 id="about-title">Avi Solanki</h2>
+    <p>Brother. Son. Friend.</p><p>Engineer. Problem solver.<br>I like figuring things out.<br>Jack of all trades.</p>
+    <a href="mailto:avi27.999@gmail.com">avi27.999@gmail.com <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+  </dialog>
+  <dialog id="notebook" class="reading-dialog notebook-dialog" aria-labelledby="notebook-title">
+    <button class="close reading-close" data-close="notebook" aria-label="Close notebook">×</button>
+    <p class="eyebrow">From the notebook</p><h2 id="notebook-title">Light &amp; life.</h2>
+    <div class="study-tabs" role="group" aria-label="Choose a study"><button data-study="light" aria-pressed="true">01 &nbsp; Light</button><button data-study="life" aria-pressed="false">02 &nbsp; Life</button></div>
+    <section id="study-light" aria-label="An optical study"><svg class="study-art" viewBox="0 0 440 250" fill="none" aria-hidden="true"><defs><linearGradient id="spectrum" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#c67958"/><stop offset=".3" stop-color="#c5a75e"/><stop offset=".6" stop-color="#74a89b"/><stop offset="1" stop-color="#708cba"/></linearGradient></defs><path d="M30 112h142" stroke="currentColor" stroke-width="1.5"/><path d="m170 170 56-114 56 114Z" fill="#88a9b514" stroke="currentColor" stroke-width="1.3"/><path d="m226 56 11 105-67 9m67-9 45 9" stroke="currentColor" opacity=".4"/><path d="m257 112 151-49v133l-146-60Z" fill="url(#spectrum)" opacity=".45"/><path d="m172 112 43 14 42-14" stroke="currentColor"/><circle cx="215" cy="126" r="3" fill="currentColor"/></svg><p>White light, separated.</p><p class="study-note">Turn the courtyard dial to explore the light.</p></section>
+    <section id="study-life" hidden aria-label="A study of living patterns"><svg class="study-art helix" viewBox="0 0 440 250" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.5"><path d="M163 20C313 65 127 85 277 125S127 185 277 230"/><path d="M277 20C127 65 313 85 163 125S313 185 163 230"/><path d="m183 28 74 0m-40 16 2 0m-28 16 58 0m-76 16 98 0m-76 16 54 0m-4 16-39 0m-16 16 76 0m-50 16 16 0m-22 16 28 0m-58 16 89 0m-81 16 70 0m-45 16 22 0m-39 16 55 0" opacity=".45"/></g><g stroke="currentColor" opacity=".5"><path d="M67 214c-18-77 3-123 39-156 5 64-4 104-39 156Zm0 0 35-141m-26 58 14 3m-19 20 14 3m-13 20 8 2"/></g></svg><p>The structure of DNA.</p><p class="study-note">A study in how living things store information.</p></section>
+  </dialog>
   <dialog id="arcade" aria-labelledby="arcade-title">
     <div class="arcade-header"><span id="arcade-title">Pick a game</span><button id="close-games" class="close" aria-label="Close games">×</button></div>
 <div class="game-tabs" role="group" aria-label="Choose a game"><button data-game="assembly" aria-pressed="true">Assembly</button><button data-game="orbit" aria-pressed="false">Orbit</button><button data-game="flight" aria-pressed="false">Flight</button></div>

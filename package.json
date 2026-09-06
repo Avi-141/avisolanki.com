@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "test": "node test/games.test.mjs && node test/theme.test.mjs",
-    "build": "esbuild src/scene.js --bundle --minify --format=esm --outfile=public/dawn-scene.js"
+    "test": "node test/games.test.mjs && node test/theme.test.mjs && node test/site.test.mjs",
+    "build": "esbuild src/scene.js --bundle --minify --format=esm --outfile=public/dawn-scene.js && esbuild src/courtyard.js --bundle --minify --format=esm --outfile=public/courtyard-scene.js"
   },
   "devDependencies": {
     "esbuild": "0.28.1",

@@ -1,9 +1,9 @@
-import { alignedPieces, catchOrbit, newFlight, stepFlight } from './game-rules.mjs';
+import { alignedPieces, catchOrbit, newFlight, stepFlight } from '../game-rules.mjs';
 const $ = id => document.getElementById(id);
 const arcade = $('arcade'), orbitButton = $('orbit-action'), flightButton = $('flight-action');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 let scene, game = 'assembly', playing = false, frame = 0, last = 0;
-import('./courtyard-scene.js').then(({ createCourtyard }) => { scene = createCourtyard($('scene'), reduced.matches); }).catch(() => {});
+import('../dawn-scene.js').then(({ createDawn }) => { scene = createDawn($('scene'), reduced.matches); }).catch(() => {});
 reduced.addEventListener('change', e => scene?.setPaused(e.matches));
 
 const pieces = [...document.querySelectorAll('[data-piece]')];
@@ -126,24 +126,3 @@ function animate(now) {
   }
   frame = requestAnimationFrame(animate);
 }
-
-for (const name of ['about', 'notebook']) {
-  const dialog = $(name), opener = $(`open-${name}`);
-  opener.addEventListener('click', () => dialog.showModal());
-  document.querySelector(`[data-close="${name}"]`).addEventListener('click', () => dialog.close());
-  dialog.addEventListener('close', () => opener.focus());
-}
-document.querySelectorAll('[data-study]').forEach(button => button.addEventListener('click', () => {
-  document.querySelectorAll('[data-study]').forEach(item => {
-    const selected = item === button;
-    item.setAttribute('aria-pressed', String(selected));
-    $(`study-${item.dataset.study}`).hidden = !selected;
-  });
-}));
-const lightDial = $('light-dial');
-lightDial.addEventListener('input', () => {
-  const value = Number(lightDial.value);
-  lightDial.setAttribute('aria-valuetext', value < -20 ? 'Cool morning light' : value > 20 ? 'Warm afternoon light' : 'Morning light');
-  document.documentElement.style.setProperty('--dial-angle', `${value}deg`);
-  document.documentElement.style.setProperty('--light-warmth', `${(value + 60) / 700}`);
-});

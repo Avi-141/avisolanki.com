@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1b1b1e">
+  <meta name="description" content="Avi Solanki. Engineer, problem solver, and jack of all trades.">
+  <meta property="og:title" content="Avi Solanki">
+  <meta property="og:description" content="Engineer. Problem solver. I like figuring things out.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avisolanki.com/">
+  <link rel="canonical" href="https://avisolanki.com/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="/v1/style.css">
+  <script type="module" src="/v1/app.js"></script>
+  <title>Avi Solanki</title>
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <div class="scene" id="scene" aria-hidden="true"><div class="sun-fallback"></div></div>
+  <div class="page">
+    <header>
+      <a class="seal" href="/" aria-label="Avi home"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="10"/><path d="M24 2v6m0 32v6M2 24h6m32 0h6M8.5 8.5l4.2 4.2m22.6 22.6 4.2 4.2M8.5 39.5l4.2-4.2m22.6-22.6 4.2-4.2"/><circle cx="24" cy="24" r="19" stroke-dasharray="1 5"/></svg></a>
+      <nav aria-label="Links and appearance"><a class="linkedin" href="https://www.linkedin.com/in/avisolanki" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></a><a class="email" href="mailto:avi27.999@gmail.com" aria-label="Email Avi at avi27.999@gmail.com"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></a><button id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode"><svg class="theme-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="theme-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg></button></nav>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="name">
+        <h1 id="name">Avi</h1>
+        <div class="bio"><p class="personal">Brother, son, friend.</p><p class="profession">Engineer. Problem solver.</p><p>I like figuring things out.</p><p>Jack of all trades.</p></div>
+      </section>
+    </main>
+<footer><span class="full-name">Avi Solanki</span><button id="open-games" aria-haspopup="dialog">Play <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></button></footer>
+  </div>
+
+  <dialog id="arcade" aria-labelledby="arcade-title">
+    <div class="arcade-header"><span id="arcade-title">Pick a game</span><button id="close-games" class="close" aria-label="Close games">×</button></div>
+<div class="game-tabs" role="group" aria-label="Choose a game"><button data-game="assembly" aria-pressed="true">Assembly</button><button data-game="orbit" aria-pressed="false">Orbit</button><button data-game="flight" aria-pressed="false">Flight</button></div>
+    <section id="assembly-panel" aria-label="Assembly rotation puzzle">
+      <h2>Make it click.</h2><p class="game-description">Tap each piece to rotate it into an A.</p>
+      <div class="assembly-board">
+        <svg class="assembly-guide" viewBox="0 0 400 420" aria-hidden="true"><path d="m75 350 100-280h50L139 350Zm150-280 100 280h-64L175 70ZM119 255h162l17 48H102Z"/></svg>
+        <button data-piece="0" class="assembly-piece a-left" aria-label="Rotate left piece"><svg viewBox="0 0 150 280" aria-hidden="true"><path d="M100 0h50L64 280H0Z" fill="#b88650"/></svg></button>
+        <button data-piece="1" class="assembly-piece a-right" aria-label="Rotate right piece"><svg viewBox="0 0 150 280" aria-hidden="true"><path d="M0 0h50l100 280h-64Z" fill="#e0c699"/></svg></button>
+        <button data-piece="2" class="assembly-piece a-cross" aria-label="Rotate middle piece"><svg viewBox="0 0 196 48" aria-hidden="true"><path d="M17 0h162l17 48H0Z" fill="#936942"/></svg></button>
+      </div>
+      <div id="assembly-status" class="game-status" aria-live="polite">0 / 3 aligned</div>
+      <button id="assembly-mix" class="game-action">Mix again <span aria-hidden="true">↗</span></button>
+    </section>
+    <section hidden id="orbit-panel" aria-label="Orbit timing game">
+      <h2>Find your timing.</h2><p class="game-description">Stop the spark inside the golden arc.<br>Five catches. Three chances.</p>
+      <div class="orbit-board" aria-hidden="true"><svg viewBox="0 0 240 240"><circle class="orbit-track" cx="120" cy="120" r="88"/><path id="target-arc" class="target-arc" d="M 199.74 82.74 A 88 88 0 0 1 199.74 157.26"/><g id="orbit-hand"><circle class="orbital-spark" cx="208" cy="120" r="5"/><circle class="spark-halo" cx="208" cy="120" r="12"/></g><circle class="board-sun" cx="120" cy="120" r="29"/><circle class="board-halo" cx="120" cy="120" r="36"/></svg><span id="orbit-score">0 / 5</span></div>
+      <div class="game-status" id="orbit-status" aria-live="polite">Five catches to win.</div>
+      <button class="game-action" id="orbit-action">Start <span aria-hidden="true">↗</span></button>
+      <div class="game-foot"><span id="lives">3 chances left</span><span>CLICK OR SPACE</span></div>
+    </section>
+    <section id="flight-panel" aria-label="Flight arcade game" hidden>
+      <h2>Clear a path.</h2><p class="game-description">Move your ship. It fires automatically.<br>Hit 12 targets before 3 get through.</p>
+      <canvas id="flight-canvas" width="320" height="270" aria-label="Flight playfield. Use arrow keys or the controls below to steer."></canvas>
+      <div id="flight-status" class="game-status" aria-live="polite">Ready when you are.</div>
+      <div class="flight-controls"><button id="flight-left" aria-label="Steer left">←</button><button id="flight-action" class="game-action">Start <span aria-hidden="true">↗</span></button><button id="flight-right" aria-label="Steer right">→</button></div>
+      <div class="game-foot"><span id="flight-score">0 / 12</span><span>DRAG OR ARROW KEYS</span></div>
+    </section>
+  </dialog>
+</body>
+</html>
