@@ -5,7 +5,8 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "test": "node test/games.test.mjs && node test/theme.test.mjs && node test/site.test.mjs",
-    "build": "esbuild src/scene.js --bundle --minify --format=esm --outfile=public/dawn-scene.js && esbuild src/courtyard.js --bundle --minify --format=esm --outfile=public/courtyard-scene.js"
+    "build": "esbuild src/scene.js --bundle --minify --format=esm --outfile=public/dawn-scene.js && esbuild src/courtyard.js --bundle --minify --format=esm --outfile=public/courtyard-scene.js && npm run build:epic",
+    "build:epic": "esbuild src/epic.js --bundle --minify --format=esm --outfile=public/epic/scene.js"
   },
   "devDependencies": {
     "esbuild": "0.28.1",

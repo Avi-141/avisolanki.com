@@ -1,6 +1,6 @@
 # avisolanki.com
 
-Avi Solanki’s single-screen personal site with a softly animated Three.js sun and three optional games. Plain HTML, CSS and JavaScript; no backend or runtime CDN dependencies.
+Avi Solanki’s single-screen personal site: two travelers beside a river, layered illustrated motion, About, LinkedIn, email, and light/dark appearance. The homepage has no arcade. V1 remains available at `/v1/`.
 
 ## Develop
 
@@ -10,17 +10,13 @@ npm run dev
 npm test
 ```
 
-Wrangler runs `npm run build` automatically before development and deployment. This bundles `src/scene.js` into `public/dawn-scene.js`. Cloudflare uses `npx wrangler deploy`, Worker `avisolanki-com`, and custom domain `avisolanki.com`.
+Wrangler runs `npm run build` before development and deployment. The existing Cloudflare Worker is `avisolanki-com`; custom domains are `avisolanki.com` and `www.avisolanki.com`.
 
-- Copy and contacts: `public/index.html`. Styling: `public/style.css`.
-- Games: `public/app.js`. Tested scoring and simulation: `public/game-rules.mjs`.
-- Assembly: rotate three pieces into an A. Click, tap, or use Tab and Enter.
-- Orbit: catch the spark in the arc five times before three misses.
-- Flight: steer with mouse, touch, arrow keys, or on-screen buttons. The ship fires automatically; hit twelve targets before three misses.
-- Escape closes the native dialog and restores focus. Leaving the tab stops an active game; returning offers a restart.
-- Ambient rendering is capped at 24 fps and 1.5 device pixel ratio. It pauses in hidden tabs and respects reduced motion. A static sun remains without WebGL; the games work independently.
-- Small screens reflow; very short screens scroll rather than clip.
+- Homepage: `public/index.html`; appearance and About: `public/epic/style.css`, `public/epic/app.js`, and `public/theme.js`.
+- Motion: `src/epic.js`, bundled to `public/epic/scene.js`. `npm run build:epic` rebuilds just this scene.
+- The scene composites generated background and foreground artwork. Cloth and foliage use local deformation; the figures are not rigged characters. The foreground uses a runtime chroma key.
+- Rendering pauses in hidden tabs and respects reduced motion. The illustration remains as a fallback without WebGL.
+- Portrait composition keeps both travelers visible. About is a native dialog; Escape closes it and returns focus.
+- Themes follow the system until the visitor chooses an appearance; that preference is saved when storage is available.
 
-Manrope uses the SIL Open Font License (`public/OFL-Manrope.txt`). Three.js uses the MIT license; esbuild preserves bundled license comments.
-
-Light and dark themes follow the system on first visit. The appearance button saves an explicit preference when local storage is available. Game colours follow the selected theme. Both avisolanki.com and www.avisolanki.com are retained in the deployment configuration.
+The original sun and courtyard code remains for earlier versions. Manrope uses the SIL Open Font License (`public/OFL-Manrope.txt`). Three.js uses the MIT license; bundled license comments are preserved.
